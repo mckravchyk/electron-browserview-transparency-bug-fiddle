@@ -55,7 +55,6 @@ function createWindow () {
   });
 
   tabView.webContents.loadURL('https://news.ycombinator.com');
-  tabView.webContents.loadFile(path.join(__dirname, 'test_page.html'));
 
   mainWindow.addBrowserView(tabView);
 
