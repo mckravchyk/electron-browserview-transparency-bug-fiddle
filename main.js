@@ -30,18 +30,11 @@ function createWindow () {
     },
   });
 
-  const rendererView = new BrowserView({
-    webPreferences: {
-      ...unsafeLocalPreferences,
-    },
-  });
-
-  rendererView.webContents.on('will-navigate', (e) => {
-    console.log(e);
+  mainWindow.webContents.on('will-navigate', (e) => {
     e.preventDefault();
   });
 
-  rendererView.webContents.loadFile(path.join(__dirname, 'renderer.html'));
+  mainWindow.webContents.loadFile(path.join(__dirname, 'renderer.html'));
 
   const tabView = new BrowserView({
     webPreferences: {
@@ -64,15 +57,7 @@ function createWindow () {
   tabView.webContents.loadURL('https://news.ycombinator.com');
   tabView.webContents.loadFile(path.join(__dirname, 'test_page.html'));
 
-  mainWindow.addBrowserView(rendererView);
   mainWindow.addBrowserView(tabView);
-
-  rendererView.setBounds({
-    x: 0,
-    y: 0,
-    width: WINDOW_WIDTH,
-    height: WINDOW_HEIGHT,
-  });
 
   tabView.setBounds({
     x: SIDEBAR_WIDTH,
