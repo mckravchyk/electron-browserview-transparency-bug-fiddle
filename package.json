@@ -1,5 +1,5 @@
 {
-  "name": "electron-browserview-undesired-transparency-bug",
+  "name": "electron-browserview-transparency-bug",
   "version": "1.0.0",
   "description": "A demonstration of a bug where a BrowserView has transparency when it should not have under certain circumstances",
   "main": "main.js",

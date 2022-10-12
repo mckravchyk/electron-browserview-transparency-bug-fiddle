@@ -54,10 +54,15 @@ function createWindow () {
   });
 
   ipcMain.on('load-url', (e, url) => {
-    tabView.webContents.loadURL(url);
+    if (url.indexOf('file://') === 0) {
+      tabView.webContents.loadFile(path.join(__dirname, url.replace('file://', '')));
+    } else {
+      tabView.webContents.loadURL(url);
+    }
   });
 
   tabView.webContents.loadURL('https://news.ycombinator.com');
+  tabView.webContents.loadFile(path.join(__dirname, 'test_page.html'));
 
   mainWindow.addBrowserView(rendererView);
   mainWindow.addBrowserView(tabView);
