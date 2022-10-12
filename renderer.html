@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+  <style>
+    body {
+      background: #3a4960;
+      font-family: sans-serif;
+    }
+
+    #TopBar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 50px;
+      background: #203046;
+    }
+
+    #Sidebar {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      bottom: 0;
+      width: 160px;
+      background: #24354e;
+      z-index: 1;
+    }
+
+    a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+  </style>
+
+  </head>
+  <body>
+    <div id="TopBar"></div>
+    <div id="Sidebar">
+      <a href="https://news.ycombinator.com">Hacker News</a><br>
+      <a href="https://www.google.com">Google</a>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
